@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SimulatingForm</class>
+ <widget class="QMainWindow" name="SimulatingForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="UpperPanelFoneLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1301</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#UpperPanelFoneLabel {
+background-color: rgb(64, 66, 68)
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="launchButton">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>0</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#launchButton {
+background-color: rgb(64, 66, 68);
+border: none;
+	image: url(:/images/Play.png);
+}
+#launchButton:hover:!pressed {
+background-color: rgb(106, 110, 113);
+}
+#launchButton:pressed {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>0</y>
+      <width>131</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pauseButton{
+background-color: rgb(64, 66, 68);
+border: none;
+	image: url(:/images/Pause.png);
+}
+#pauseButton:hover:!checked {
+background-color: rgb(106, 110, 113);
+}
+#pauseButton:!hover:checked {
+background-color: rgb(106, 110, 113);
+}
+#pauseButton:hover:checked {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>0</y>
+      <width>131</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#stopButton{
+background-color: rgb(64, 66, 68);
+border: none;
+	image: url(:/images/Stop.png);
+}
+#stopButton:hover:!pressed {
+background-color: rgb(106, 110, 113);
+}
+#stopButton:pressed {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="statementsList">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>121</y>
+      <width>256</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#statementsList {
+border: none;
+background-color: rgb(147, 147, 147);
+color: rgb(255, 255, 255);
+selection-color: rgb(0, 0, 0);
+	selection-background-color: rgb(227, 227, 227);
+}</string>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>false</bool>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="spacing">
+     <number>5</number>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="editModeCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>0</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#editModeCheckBox::indicator {
+width: 1000;
+height: 1000;
+}
+#editModeCheckBox {
+image: url(:/images/Edit.png);
+}
+#editModeCheckBox:hover:!checked {
+background-color: rgb(106, 110, 113);
+}
+#editModeCheckBox:!hover:checked {
+background-color: rgb(106, 110, 113);
+}
+#editModeCheckBox:hover:checked {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#backButton {
+background-color: rgb(64, 66, 68);
+border: none;
+	image: url(:/images/Back.png);
+}
+#backButton:hover:!pressed {
+background-color: rgb(106, 110, 113);
+}
+#backButton:pressed {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="flushButton">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>0</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#flushButton{
+background-color: rgb(64, 66, 68);
+border: none;
+	
+	image: url(:/images/Flush.png);
+}
+#flushButton:hover:!pressed {
+background-color: rgb(106, 110, 113);
+}
+#flushButton:pressed {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="toCenterButton">
+    <property name="geometry">
+     <rect>
+      <x>981</x>
+      <y>0</y>
+      <width>121</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#toCenterButton{
+background-color: rgb(64, 66, 68);
+border: none;
+	
+	
+	image: url(:/images/To center.png);
+}
+#toCenterButton:hover:!pressed {
+background-color: rgb(106, 110, 113);
+}
+#toCenterButton:pressed {
+background-color: rgb(45, 46, 48);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1300</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="Parametres">
+    <property name="title">
+     <string>Параметры</string>
+    </property>
+    <addaction name="Field"/>
+    <addaction name="Simulation"/>
+    <addaction name="configurationsAction"/>
+   </widget>
+   <addaction name="Parametres"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="Field">
+   <property name="text">
+    <string>Параметры поля</string>
+   </property>
+  </action>
+  <action name="Simulation">
+   <property name="text">
+    <string>Параметры симуляции</string>
+   </property>
+  </action>
+  <action name="configurationsAction">
+   <property name="text">
+    <string>Управление конфигурациями</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

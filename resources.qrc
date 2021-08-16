@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Play.png</file>
+        <file>Pause.png</file>
+        <file>Stop.png</file>
+        <file>Edit.png</file>
+        <file>Back.png</file>
+        <file>Flush.png</file>
+        <file>SETTINGS.png</file>
+        <file>To center.png</file>
+        <file>Logo.png</file>
+    </qresource>
+</RCC>
