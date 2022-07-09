@@ -53,13 +53,18 @@ of all states. To set some state to the cell, just choose it at the right and cl
 You can save as many fields at a time as you want. In each *configuration*, the field size, default state and initial layouts are all saved.
 
 ## Example
-Here is an example of *Conway's Game of Life* - very simple and famous automaton that can be created here in a minute.
+Here is an example of *Conway's Game of Life* - very simple and famous automaton that can be created here in just a minute.
 
 ![image](https://user-images.githubusercontent.com/51193423/178119645-4046b24b-27cc-4502-9f92-f1dae929bf84.png)
 
 
-![glider gun demo (1)](https://user-images.githubusercontent.com/51193423/178119628-cd9cc8a3-4e43-4f1d-84e4-4d4cccde324d.gif)
 
+
+![Glider gun demo (2)](https://user-images.githubusercontent.com/51193423/178119813-c7463a86-a424-4c9d-899c-b97ad2670000.gif)
+
+
+## Installation
+If you are on Windows 10 or higher, just launch setup.exe file that is in repository or compile it yourself on Qt 5.14.1+ with MSVC17
 
 
 
