@@ -40,6 +40,9 @@ Finally, the last column containes list of *rules*. Their structure looks like t
 Conditions are set by arithmetical and logical operators, variables, neighborhood functions and different build-in functions.
 Action can be two types - set a *state* to current cell, or ban/allow neighborhood function.
 
+
+The detailed help lies in repository
+
 ## Simulation of automaton
 
 After creation of automaton it can be simulated. In simulation window, there is main field where automaton is executed. At the top there are buttons -
