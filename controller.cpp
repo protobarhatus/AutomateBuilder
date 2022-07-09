@@ -291,6 +291,7 @@ void Controller::changeRuleButtonPressed(int number)
         return;
     rule->setCondition(controller.getStrCondition(), controller.getCondition());
     rule->setAction(controller.getStrAction(), controller.getAction());
+    rule->setSecondAction(controller.getStrSecondAction(), controller.getSecondAction());
     rule->setGlobality(controller.isGlobal());
     this->create_automate_window->update();
 }

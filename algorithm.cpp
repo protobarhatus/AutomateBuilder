@@ -30,7 +30,7 @@ Algorithm::~Algorithm()
         it.second.reset();
     for (auto &it : this->local_rules_vector)
         it.reset();
-    for (auto &it : this->logic_variable_list)
+    for (auto &it : this->logic_variables_list)
         it.second.reset();
     for (auto &it : this->logic_variables_vector)
         it.reset();
@@ -55,7 +55,7 @@ void Algorithm::addLogicVariable(QString name, bool is_global, QString sformula,
     }
     else
     {
-        this->logic_variable_list.insert(std::pair<QString,
+        this->logic_variables_list.insert(std::pair<QString,
                                                  std::shared_ptr<LogicVariable>>(name, std::shared_ptr<LogicVariable>(variable)));
     }
 }
@@ -120,7 +120,7 @@ void Algorithm::addEnvironsFunction(QString name, int X, int Y, bool is_allowed)
 bool Algorithm::hasIterativeVariable(QString name)
 {
 
-        return this->logic_variable_list.find(name) != this->logic_variable_list.end() ||
+        return this->logic_variables_list.find(name) != this->logic_variables_list.end() ||
             this->value_variables_list.find(name) != this->value_variables_list.end();
 
 }
@@ -131,7 +131,7 @@ bool Algorithm::hasGlobalVariable(QString name)
 }
 const std::map<QString, std::shared_ptr<LogicVariable>> & Algorithm::getLogicVariablesList()
 {
-    return this->logic_variable_list;
+    return this->logic_variables_list;
 }
 const std::map<QString, std::shared_ptr<ValueVariable>> & Algorithm::getValueVariablesList()
 {
@@ -147,7 +147,7 @@ const std::map<QString, std::shared_ptr<LogicVariable>> & Algorithm::getGlobalLo
 }
 bool Algorithm::hasLogicVariable(QString name)
 {
-    return this->logic_variable_list.find(name) != this->logic_variable_list.end() ||
+    return this->logic_variables_list.find(name) != this->logic_variables_list.end() ||
             this->global_logic_variables_list.find(name) != this->global_logic_variables_list.end();
 }
 bool Algorithm::hasValueVariable(QString name)
@@ -160,7 +160,7 @@ std::shared_ptr<LogicVariable> Algorithm::getLogicVariable(QString name)
     std::map<QString, std::shared_ptr<LogicVariable>>::iterator it;
     std::shared_ptr<LogicVariable> ptr;
 
-    if ((it = this->logic_variable_list.find(name)) != this->logic_variable_list.end())
+    if ((it = this->logic_variables_list.find(name)) != this->logic_variables_list.end())
     {
         /*
         ptr = std::shared_ptr<LogicVariable>(&it->second, MyDeleter());
@@ -250,9 +250,9 @@ void Algorithm::changeLogicVariable(QString old_name, QString current_name, bool
     }
     else
     {
-        it = this->logic_variable_list.find(old_name);
+        it = this->logic_variables_list.find(old_name);
         var = it->second;
-        this->logic_variable_list.erase(it);
+        this->logic_variables_list.erase(it);
     }
     if (is_global)
     {
@@ -260,7 +260,7 @@ void Algorithm::changeLogicVariable(QString old_name, QString current_name, bool
     }
     else
     {
-        this->logic_variable_list.insert(std::pair<QString, std::shared_ptr<LogicVariable>>(current_name, var));
+        this->logic_variables_list.insert(std::pair<QString, std::shared_ptr<LogicVariable>>(current_name, var));
     }
 }
 void Algorithm::changeValueVariable(QString old_name, QString current_name, bool were_global, bool is_global)
@@ -292,7 +292,7 @@ void Algorithm::changeValueVariable(QString old_name, QString current_name, bool
 
 void Algorithm::reBuildAllStringFormulas()
 {
-    for (auto &it : this->logic_variable_list)
+    for (auto &it : this->logic_variables_list)
     {
         it.second->buildStringFormula();
     }
@@ -316,7 +316,7 @@ void Algorithm::reBuildAllStringFormulas()
 
 void Algorithm::reCompileAllFormulas(FieldDistributor * field)
 {
-    for (auto &it : this->logic_variable_list)
+    for (auto &it : this->logic_variables_list)
     {
         it.second->reCompileFormula(this, field);
     }
@@ -339,10 +339,10 @@ void Algorithm::reCompileAllFormulas(FieldDistributor * field)
 }
 void Algorithm::deleteVariable(QString name)
 {
-    auto l_it = this->logic_variable_list.find(name);
-    if (l_it != this->logic_variable_list.end())
+    auto l_it = this->logic_variables_list.find(name);
+    if (l_it != this->logic_variables_list.end())
     {
-        this->logic_variable_list.erase(l_it);
+        this->logic_variables_list.erase(l_it);
         return;
     }
     l_it = this->global_logic_variables_list.find(name);
@@ -483,7 +483,7 @@ void Algorithm::getReadyBeforeSimulating()
 {
 
     this->logic_variables_vector.clear();
-    for (auto &it : this->logic_variable_list)
+    for (auto &it : this->logic_variables_list)
     {
         this->logic_variables_vector.push_back(it.second);
     }
@@ -586,7 +586,7 @@ int Algorithm::getAmountOfBannedEnvironsFunctions()
 }
 bool Algorithm::isValid()
 {
-    for (auto &it : this->logic_variable_list)
+    for (auto &it : this->logic_variables_list)
     {
         if (!it.second->isFormulaValid())
             return false;
@@ -642,13 +642,13 @@ void Algorithm::eraseWaveFunction(int number)
 }
 void Algorithm::amountOfThreadsChanged(int new_amount)
 {
-    for (auto &it : this->logic_variables_vector)
+    for (auto &it : this->logic_variables_list)
     {
-        it->amountOfThreadsChanged(new_amount);
+        it.second->amountOfThreadsChanged(new_amount);
     }
-    for (auto &it : this->value_variables_vector)
+    for (auto &it : this->value_variables_list)
     {
-        it->amountOfThreadsChanged(new_amount);
+        it.second->amountOfThreadsChanged(new_amount);
     }
 }
 void Algorithm::setStep(int s)

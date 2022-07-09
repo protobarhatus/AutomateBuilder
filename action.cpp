@@ -23,7 +23,7 @@ QString Action::buildStringFormula()
     if (this->action_elements.empty())
         return "";
     this->string_formula = this->action_elements[0]->getStringRepresentation();
-    for (auto &it = ++this->action_elements.begin(); it != this->action_elements.end(); ++it)
+    for (auto it = ++this->action_elements.begin(); it != this->action_elements.end(); ++it)
     {
         this->string_formula += " & " + it->get()->getStringRepresentation();
     }

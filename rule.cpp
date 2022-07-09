@@ -10,6 +10,7 @@ void Rule::buildStringFormula()
     this->str_condition = this->condition->reBuildStringFormula();
     this->str_action = this->action.buildStringFormula();
     this->str_second_action = this->second_action.buildStringFormula();
+    this->is_formula_valid = true;
 }
 
 void Rule::reCompileFormula(Algorithm * algorithm, FieldDistributor * field)

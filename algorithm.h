@@ -97,7 +97,7 @@ private:
     //в режим симуляции, переменные, функции и правила перенесутся в std::vector ради увеличения быстродействия. Они хранятся в виде
     //указателей из-за ограничения мапа, позволяющего вызывать только const методы объектов, хранящихся в них, тогда как эти
     //данные необходимо изменять
-    std::map<QString, std::shared_ptr<LogicVariable>> logic_variable_list;
+    std::map<QString, std::shared_ptr<LogicVariable>> logic_variables_list;
     std::map<QString, std::shared_ptr<ValueVariable>> value_variables_list;
     std::map<QString, std::shared_ptr<ValueVariable>> global_variables_list;
     std::map<QString, std::shared_ptr<LogicVariable>> global_logic_variables_list;
